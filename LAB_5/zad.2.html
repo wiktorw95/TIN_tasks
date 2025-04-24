@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Zarządzaj projektami łatwiej niż kiedykolwiek</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav x-data="{ open: false }" class="fixed w-full z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <svg class="h-8 w-8 mr-2" fill="indigo" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm12 2a2 2 0 00-2-2h-4a2 2 0 00-2 2v11a3 3 0 106 0V4zM8 16a1 1 0 100-2 1 1 0 000 2zm10-1a1 1 0 11-2 0 1 1 0 012 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-xl font-bold text-indigo-600">TaskFlow</span>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-4 flex items-center md:ml-6">
+                    <a href="#funkcje" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium mr-2">Funkcje</a>
+                    <a href="#cennik" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium mr-2">Cennik</a>
+                    <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition">Darmowy dostęp</a>
+                </div>
+            </div>
+            <div class="-mr-2 flex md:hidden">
+                <button @click="open = !open" type="button" class="bg-gray-100 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-indigo-600 hover:bg-gray-200">
+                    <svg x-show="!open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg x-show="open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-show="open" class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#funkcje" class="text-gray-600 hover:bg-gray-100 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Funkcje</a>
+            <a href="#cennik" class="text-gray-600 hover:bg-gray-100 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium">Cennik</a>
+            <a href="#" class="bg-indigo-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">Darmowy dostęp</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative pt-24 pb-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+        <div class="container mx-auto px-4 py-20 md:py-36">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Zarządzaj projektami <span class="text-indigo-200"> łatwiej niż kiedykolwiek</span></h1>
+                <p class="text-indigo-200 text-small md:text-md opacity-90 mb-8">TaskFlow pomaga zespołom pracować wydajniej. Planuj projekty, przydzielaj zadania i śledź postępy w jednym miejscu.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="bg-white text-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-lg font-medium transition-colors">Rozpocznij za darmo</a>
+                    <a href="#" class="bg-transparent border-2 border-white hover:bg-white hover:text-indigo-600 px-6 py-3 rounded-lg font-medium transition-colors">Demo produktu</a>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:block">
+            <div class="bg-white w-[500px] h-[500px] rounded-lg shadow-xl transform transition hover:rotate-3 flex">
+                <span class="text-s text-black">Dashboard aplikacji</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Features Section -->
+<section id="funkcje" class="py-16 bg-gray">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-indigo-600 uppercase font-medium mb-2">FUNKCJE</p>
+            <h2 class="text-4xl font-bold text-gray-900">Wszystko, czego potrzebujesz do zarządzania projektami</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white rounded-lg p-8 shadow-sm transition-all hover:shadow-lg hover:border-indigo-300 hover:-translate-y-2">
+                <div class="bg-indigo-600 w-14 h-14 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="h-6 w-6 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900">Zarządzanie zadaniami</h3>
+                <p class="text-gray-600">Twórz, przydzielaj i śledź zadania. Używaj list, tablic Kanban lub widoków kalendarza.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white rounded-lg p-8 shadow-sm transition-all hover:shadow-lg hover:border-indigo-300 hover:-translate-y-2">
+                <div class="bg-green-500 w-14 h-14 rounded-lg flex items-center justify-center mb-5">
+                    <svg fill="#ffffff" width="45px" height="545px" viewBox="-7.2 -7.2 38.40 38.40" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M.221 16.268a15.064 15.064 0 0 0 1.789 1.9C2.008 18.111 2 18.057 2 18a5.029 5.029 0 0 1 3.233-4.678 1 1 0 0 0 .175-1.784A2.968 2.968 0 0 1 4 9a2.988 2.988 0 0 1 5.022-2.2 5.951 5.951 0 0 1 2.022-.715 4.994 4.994 0 1 0-7.913 6.085 7.07 7.07 0 0 0-2.91 4.098zM23.779 16.268a7.07 7.07 0 0 0-2.91-4.1 4.994 4.994 0 1 0-7.913-6.086 5.949 5.949 0 0 1 2.022.715 2.993 2.993 0 1 1 3.614 4.74 1 1 0 0 0 .175 1.784A5.029 5.029 0 0 1 22 18c0 .057-.008.111-.01.167a15.065 15.065 0 0 0 1.789-1.899z"></path> <path d="M18.954 20.284a7.051 7.051 0 0 0-3.085-5.114A4.956 4.956 0 0 0 17 12a5 5 0 1 0-8.869 3.17 7.051 7.051 0 0 0-3.085 5.114 14.923 14.923 0 0 0 1.968.849C7.012 21.088 7 21.046 7 21a5.031 5.031 0 0 1 3.233-4.678 1 1 0 0 0 .175-1.785A2.964 2.964 0 0 1 9 12a3 3 0 1 1 6 0 2.964 2.964 0 0 1-1.408 2.537 1 1 0 0 0 .175 1.785A5.031 5.031 0 0 1 17 21c0 .046-.012.088-.013.133a14.919 14.919 0 0 0 1.967-.849z"></path> </g></svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900">Współpraca zespołowa</h3>
+                <p class="text-gray-600">Komunikuj się w czasie rzeczywistym, udostępniaj pliki i współpracuj nad dokumentami.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white rounded-lg p-8 shadow-sm transition-all hover:shadow-lg hover:border-indigo-300 hover:-translate-y-2">
+                <div class="bg-purple-600 w-14 h-14 rounded-lg flex items-center justify-center mb-5">
+                    <svg class="h-6 w-6 text-purple-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900">Śledzenie postępów</h3>
+                <p class="text-gray-600">Monitoruj postępy projektu z wykresami Gantta i zaawansowanymi raportami analitycznymi.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="cennik" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <p class="text-indigo-600 uppercase font-medium mb-2">CENNIK</p>
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Plany dopasowane do potrzeb Twojego zespołu</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic Plan -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition-all hover:shadow-lg hover:border-indigo-300 hover:-translate-y-2">
+                <h3 class="text-2xl font-bold mb-2 text-gray-900 text-center">Basic</h3>
+                <div class="mb-2 text-center">
+                    <span class="inline-block bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">Dla małych zespołów</span>
+                </div>
+                <p class="text-4xl font-bold text-gray-900 text-center my-6">49 zł<span class="text-base text-gray-500">/miesiąc</span></p>
+                <ul class="mb-8 space-y-4">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">Do 5 użytkowników</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">5GB przestrzeni dyskowej</span>
+                    </li>
+                </ul>
+                <a href="#" class="block w-full text-center border border-indigo-600 text-indigo-600 px-6 py-3 rounded-md transition-colors duration-300 hover:bg-indigo-600 hover:text-white">Rozpocznij za darmo</a>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="bg-white border-2 border-indigo-600 rounded-lg p-6 shadow-lg relative transition-all hover:shadow-xl hover:-translate-y-2 hover:border-indigo-500">
+                <div class="bg-indigo-600 text-white text-center py-2 absolute top-0 left-0 right-0 rounded-t-lg">
+                    <span class="font-medium">Polecany</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-2 text-gray-900 text-center mt-6">Pro</h3>
+                <p class="text-4xl font-bold text-gray-900 text-center my-6">99 zł<span class="text-base text-gray-500">/miesiąc</span></p>
+                <ul class="mb-8 space-y-4">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">Do 20 użytkowników</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">50GB przestrzeni dyskowej</span>
+                    </li>
+                </ul>
+                <a href="#" class="block w-full text-center bg-indigo-600 text-white px-6 py-3 rounded-md transition-all duration-300 hover:bg-indigo-700 hover:shadow-md">Rozpocznij za darmo</a>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition-all hover:shadow-lg hover:border-indigo-300 hover:-translate-y-2">
+                <h3 class="text-2xl font-bold mb-2 text-gray-900 text-center">Enterprise</h3>
+                <p class="text-4xl font-bold text-gray-900 text-center my-6">249 zł<span class="text-base text-gray-500">/miesiąc</span></p>
+                <ul class="mb-8 space-y-4">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">Nieograniczona liczba użytkowników</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-gray-700">500GB przestrzeni dyskowej</span>
+                    </li>
+                </ul>
+                <a href="#" class="block w-full text-center border border-indigo-600 text-indigo-600 px-6 py-3 rounded-md transition-colors duration-300 hover:bg-indigo-600 hover:text-white">Kontakt z działem sprzedaży</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-indigo-600 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-white mb-3">Gotowy na zwiększenie produktywności?</h2>
+        <p class="text-large text-indigo-100 mb-8">Dołącz do zespołów, które usprawniły swoją pracę dzięki TaskFlow</p>
+        <a href="#" class="bg-white text-indigo-600 px-9 py-3 rounded-md text-medium font-semibold transform transition hover:scale-105 hover:bg-indigo-50">Rozpocznij za darmo</a>
+    </div>
+</section>
+</body>
+</html>
